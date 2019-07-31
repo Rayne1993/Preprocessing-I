@@ -57,3 +57,122 @@ html, body {
     height: 100%;
 }
 
+// mixins 
+.flex {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 90%;
+}
+
+.text {
+	font-size: 1.2rem;
+	color: gray;
+}
+
+.mobilenav {
+	flex-direction: column;
+	align-items: center;	
+}
+// variables
+@color1: #2F6B8D;
+
+@border: 1px solid black;
+
+// css
+.container {
+	background: #C3F3FA;
+}
+
+nav {
+	display: flex;
+	width: 90%;
+	padding: 0;
+	justify-content: space-evenly;
+
+	@media (max-width: 500px) {
+		.mobilenav();
+	}
+
+	a {
+		text-decoration: none;
+		.text();
+		padding: 10px 0;
+
+		@media (max-width: 500px) {
+			padding: 10px;
+		}
+	}
+}
+
+.banner {
+	.flex();
+
+	img {
+		width: 75%;
+		height: 250px;
+	}
+}
+
+.top {
+	.flex();
+	
+	h1 {
+		padding: 20px;
+		color: black;
+		font-size: 1.4rem;
+	}
+
+	p {
+		width: 60%;
+	}
+}
+
+.middle {
+	.flex();
+	
+	h2 {
+		.text();
+		margin: 20px 0;
+	}
+
+	ul {
+		width: 60%;
+
+		li {
+			padding: 10px;
+			color: @color1;
+		}
+	}
+}
+
+.bottom{
+	h2{
+		.text();
+		.flex();
+		margin: 20px auto;
+	}
+
+	table {
+		color: white;
+		width: 70%;
+		margin: 0 auto;
+
+		@media (max-width: 500px) {
+			width: 50%;
+			margin: 10px 0 50px 100px;
+		}
+
+		th {
+			border: @border;
+			padding:  10px;
+			background: @color1;
+		}
+
+		td {
+			border: @border;
+			padding: 10px;
+			background: @color1;
+		}
+	}
+}
